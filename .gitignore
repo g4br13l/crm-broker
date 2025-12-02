@@ -43,8 +43,6 @@ frontend/.next/
 **/next-env.d.ts
 
 # IDE
-**/.idea
-**/.vscode
 **/*.swp
 
 # Backend (add more as needed based on your stack)

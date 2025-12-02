@@ -1,0 +1,166 @@
+{
+  "eslint.workingDirectories": [
+    "frontend"
+  ],
+  // Performance settings
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.options": {
+    "cache": true,
+    "cacheLocation": "frontend/node_modules/.cache/eslint/"
+  },
+  "eslint.runtime": "node",
+  // Disable the default formatter, use eslint instead
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+  // Auto fix
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  // Silent the stylistic rules in you IDE, but still auto fix them
+  "eslint.rules.customizations": [
+    {
+      "rule": "style/*",
+      "severity": "off",
+      "fixable": true
+    },
+    {
+      "rule": "format/*",
+      "severity": "off",
+      "fixable": true
+    },
+    {
+      "rule": "*-indent",
+      "severity": "off",
+      "fixable": true
+    },
+    {
+      "rule": "*-spacing",
+      "severity": "off",
+      "fixable": true
+    },
+    {
+      "rule": "*-spaces",
+      "severity": "off",
+      "fixable": true
+    },
+    {
+      "rule": "*-order",
+      "severity": "off",
+      "fixable": true
+    },
+    {
+      "rule": "*-dangle",
+      "severity": "off",
+      "fixable": true
+    },
+    {
+      "rule": "*-newline",
+      "severity": "off",
+      "fixable": true
+    },
+    {
+      "rule": "*quotes",
+      "severity": "off",
+      "fixable": true
+    },
+    {
+      "rule": "*semi",
+      "severity": "off",
+      "fixable": true
+    }
+  ],
+  // Enable eslint for essential languages only (for performance)
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  // </antfu-eslint>
+  // GitHub Copilot Settings - Prevent automatic code changes
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "github.copilot.editor.enableCodeActions": false,
+  "editor.inlineSuggest.enabled": false,
+  // "editor.acceptSuggestionOnEnter": "off",
+  "editor.tabCompletion": "off",
+  "cSpell.words": [
+    "shadcn"
+  ],
+  // TAILWIND CSS
+  /* "css.validate": false, */
+  /* "tailwindCSS.showPixelEquivalents": true, */
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript",
+    "css": "css"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "*.tsx": "typescriptreact",
+    "*.jsx": "javascriptreact"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "cva\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "cn\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "tw\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "clsx\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ]
+  ],
+  "tailwindCSS.experimental.configFile": "frontend/src/app/globals.css",
+  "tailwindCSS.suggestions": true,
+  "tailwindSorter.categories": {
+    "custom": [
+      "f-col",
+      "f-row",
+      "f-row-1",
+      "f-row-center",
+      "f-col-center",
+      "centered",
+      "side-box",
+      "main-box",
+      "h-section",
+      "main-container"
+    ]
+  },
+  "tailwindSorter.categoryOrder": {
+    "sortOrder": [
+      "custom",
+      "box",
+      "flex",
+      "grid",
+      "bg-visual",
+      "margins",
+      "borders",
+      "sizing",
+      "typography",
+      "transformations",
+      "other"
+    ]
+  },
+}
