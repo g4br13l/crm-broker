@@ -1,0 +1,29 @@
+---
+alwaysApply: true
+---
+
+# CRM Broker Project Rules
+
+This file provides essential rules for AI assistants working on this project. 
+For detailed documentation, refer to the files in the `docs/` directory.
+
+
+## Documentation References
+
+**IMPORTANT**: Always consult these documentation files for complete project information:
+
+- **`docs/techStackPatterns.md`** - Technology stack, coding patterns, naming conventions, and formatting rules
+- **`docs/projectStructure.md`** - Complete project structure, directory conventions, and file organization patterns
+- **`docs/productOverview.md`** - Project requirements and high-level description
+- **`docs/features/`** - Feature-specific PRDs and requirements
+- **`frontend/eslint.config.mjs`** - ESLint configuration and code style rules
+
+## Recommendations
+
+- Use `npm i` when installing new packages
+- Use `npx shadcn add` to add new shadcn components
+- Always use the most appropriated TypeScript Types
+- Do not modify the colors and fonts defined in the `src/app/globals.css` file 
+- You are no able to modify `.env` files directly, so tell the user how to do it
+- Use the official documentation  (you can use the MCP installed for it)
+- If you need more information to do this task, please, ask me all information you need
