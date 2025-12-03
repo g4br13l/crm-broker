@@ -9,17 +9,13 @@ import { AppPage } from '../../components/layout/appPage'
 import { PageDataT, sidebarPages } from '../../components/layout/appSidebarPages'
 import { InputField } from '../../components/ui/fields/inputField'
 import { TextAreaField } from '../../components/ui/fields/textAreaField'
+import { inputMask } from '../../shared/utils/inputMask'
 
 
 
 const leadFormSchema = z.object({
   name: z.string().min(3).max(100),
-  phone: z.string().regex(
-    /^(?:(?:55\s?)?(?:0?\d{2})\s?)?\d{5}-\d{4}$/,
-    {
-      message: 'Formato de telefone inválido. Use: 2198731-2593, 21 98731-2593, 021 98731-2593, 55 021 98731-2593, 55 21 98731-2593 ou 552198731-2593'
-    }
-  ),
+  phone: z.string().min(12).max(14),
   email: z.email().optional(),
   origin: z
     .enum(['Instagram', 'Facebook', 'Web Site', 'Indicação', 'Meta Ads', 'PDV', 'outro'])
@@ -73,6 +69,7 @@ export default function Page() {
             control={leadForm.control}
             name="phone"
             label="Cel"
+            maskFn={inputMask().phone}
           />
 
           <InputField

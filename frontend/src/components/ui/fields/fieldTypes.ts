@@ -1,4 +1,5 @@
 import { ControllerProps, FieldPath, FieldValues } from 'react-hook-form'
+import { InputMaskFnT } from '../../../shared/utils/inputMask'
 
 
 
@@ -10,5 +11,6 @@ export type FieldControlPropsT<
   control: ControllerProps<TFieldValues, TName, TTransformedValues>['control']
   name: TName
   label?: string
-  autoComplete?: AutoFill
+  autoComplete?: AutoFill,
+  maskFn?: InputMaskFnT
 }

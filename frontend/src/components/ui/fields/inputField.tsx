@@ -19,6 +19,7 @@ export function InputField<
   label = undefined,
   placeholder,
   autoComplete = 'one-time-code',
+  maskFn,
   ...fieldProps
 }: FieldControlPropsT<TFieldValues, TName, TTransformedValues> & InputPropsT) {
 
@@ -30,9 +31,15 @@ export function InputField<
       control={control}
       name={name}
       render={({ field, fieldState }) => (
-        <Field data-invalid={fieldState.invalid}>
+        <Field
+          data-invalid={fieldState.invalid}
+          className="gap-0.5"
+        >
           {label && (
-            <FieldLabel htmlFor={`${preField}${field.name}`}>
+            <FieldLabel
+              htmlFor={`${preField}${field.name}`}
+              className="ml-1"
+            >
               {label}
             </FieldLabel>
           )}
@@ -44,6 +51,9 @@ export function InputField<
             aria-invalid={fieldState.invalid}
             placeholder={placeholder}
             autoComplete={autoComplete}
+            {...(maskFn && {
+              onChange: (e) => { field.onChange(maskFn(e.target.value)) }
+            })}
           />
           {fieldState.invalid && (
             <FieldError errors={[fieldState.error]} />

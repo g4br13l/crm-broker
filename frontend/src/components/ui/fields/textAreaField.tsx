@@ -29,9 +29,15 @@ export function TextAreaField<
       control={control}
       name={name}
       render={({ field, fieldState }) => (
-        <Field data-invalid={fieldState.invalid}>
+        <Field
+          data-invalid={fieldState.invalid}
+          className="gap-0.5"
+        >
           {label && (
-            <FieldLabel htmlFor={`${preField}${field.name}`}>
+            <FieldLabel
+              htmlFor={`${preField}${field.name}`}
+              className="ml-1"
+            >
               {label}
             </FieldLabel>
           )}
