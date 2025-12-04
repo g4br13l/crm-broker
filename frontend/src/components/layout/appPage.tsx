@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { AppBreadCrumb } from '../ui/appBreadcrumb'
 import { AppHeader } from './appHeader'
-import { PageDataT } from './appSidebarPages'
+import { PageDataT } from './appSidebarItems'
 
 
 

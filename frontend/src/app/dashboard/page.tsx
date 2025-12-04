@@ -1,12 +1,12 @@
 import { AppPage } from '../../components/layout/appPage'
-import { PageDataT, sidebarPages } from '../../components/layout/appSidebarPages'
+import { PageDataT, sidebarItems } from '../../components/layout/appSidebarItems'
 
 
 
 export default function DashboardPage() {
 
   const breadCrumb: PageDataT[] = [
-    sidebarPages().getByPath('/dashboard'),
+    sidebarItems().getByPath('/dashboard'),
     { title: 'testa', path: '/test' }
   ]  
 

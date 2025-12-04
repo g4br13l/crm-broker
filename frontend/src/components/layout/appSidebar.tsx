@@ -18,14 +18,14 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/base/toolt
 import { Logo } from '../base/logo'
 import { ThemeButton } from '../base/themeButton'
 import { UserNavButton } from '../ui/userNavButton'
-import { sidebarPages } from './appSidebarPages'
+import { sidebarItems } from './appSidebarItems'
 
 
 
 export function AppSidebar() {
 
   const { open } = useSidebar()
-  const items = sidebarPages().all
+  const items = sidebarItems().all
 
   return (
     
@@ -57,10 +57,10 @@ export function AppSidebar() {
                     {open ? (<item.icon />) : (
                       <Tooltip>
                         <TooltipTrigger asChild>
-                          <item.icon size={21} />
+                          <item.icon className="size-5!" />
                         </TooltipTrigger>
                         <TooltipContent side="right">
-                          <p>{item.title}</p>
+                          <span>{item.title}</span>
                         </TooltipContent>
                       </Tooltip>
                     )}

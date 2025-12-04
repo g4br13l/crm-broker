@@ -3,7 +3,7 @@ import { ForwardRefExoticComponent, RefAttributes } from 'react'
 
 
 
-export function sidebarPages() {
+export function sidebarItems() {
 
   const all = [
     {
@@ -17,14 +17,14 @@ export function sidebarPages() {
       icon: Funnel,
     },
     {
-      title: 'Clientes',
-      path: '/clients',
-      icon: Users,
-    },
-    {
       title: 'leads',
       path: '/leads',
       icon: UsersRound,
+    },
+    {
+      title: 'Clientes',
+      path: '/clients',
+      icon: Users,
     },
     {
       title: 'WhatsApp',
@@ -57,7 +57,7 @@ export function sidebarPages() {
 }
 
 
-export type SidebarPagesT = Pick<ReturnType<typeof sidebarPages>, 'all'>['all']
+export type SidebarPagesT = Pick<ReturnType<typeof sidebarItems>, 'all'>['all']
 export type SidebarPageT = SidebarPagesT[number]
 export type SidebarPagesPath = SidebarPageT['path']
 

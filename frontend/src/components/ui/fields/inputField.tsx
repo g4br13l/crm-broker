@@ -1,10 +1,11 @@
 'use client'
 
-import { Controller, FieldPath, FieldValues } from 'react-hook-form'
-import { Field, FieldError, FieldLabel } from '../../base/field'
-import { Input } from '../../base/input'
-import { FieldControlPropsT } from './fieldTypes'
 import { ComponentProps } from 'react'
+import { Controller, FieldPath, FieldValues } from 'react-hook-form'
+import { cn } from '../../../shared/utils/shadcnUtils'
+import { FieldError, FieldLabel } from '../../base/field'
+import { InputGroup, InputGroupAddon, InputGroupInput } from '../../base/input-group'
+import { FieldControlPropsT } from './fieldTypes'
 
 
 
@@ -22,6 +23,7 @@ export function InputField<
   placeholder,
   autoComplete = 'one-time-code',
   maskFn,
+  className,
   ...fieldProps
 }: FieldControlPropsT<TFieldValues, TName, TTransformedValues> & InputPropsT) {
 
@@ -34,34 +36,35 @@ export function InputField<
       control={control}
       name={name}
       render={({ field, fieldState }) => (
-        <Field
-          data-invalid={fieldState.invalid}
-          className="gap-0.5"
-        >
-          {label && (
-            <FieldLabel
-              htmlFor={`${preField}${field.name}`}
-              className="ml-1"
-            >
-              {label}
-            </FieldLabel>
-          )}
-          <Input
-            {...fieldProps}
-            {...field}
-            type={type}
-            id={`${preField}${field.name}`}
-            aria-invalid={fieldState.invalid}
-            placeholder={placeholder}
-            autoComplete={autoComplete}
-            {...(maskFn && {
-              onChange: (e) => { field.onChange(maskFn(e.target.value)) }
-            })}
-          />
-          {fieldState.invalid && (
-            <FieldError errors={[fieldState.error]} />
-          )}
-        </Field>
+        <div className={cn('m-0 p-0 w-full', className)}>
+          <InputGroup data-invalid={fieldState.invalid}>
+            {label && (
+              <InputGroupAddon align="block-start" className="px-1! pt-0.5! pb-0!">
+                <FieldLabel htmlFor={`${preField}${field.name}`} className="ml-1 text-sm">
+                  {label}
+                </FieldLabel>
+              </InputGroupAddon>
+            )}
+            <InputGroupInput
+              {...fieldProps}
+              {...field}
+              type={type}
+              id={`${preField}${field.name}`}
+              aria-invalid={fieldState.invalid}
+              placeholder={placeholder}
+              autoComplete={autoComplete}
+              className="px-2! pt-0! pb-0.5! text-base!"
+              {...(maskFn && {
+                onChange: (e) => { field.onChange(maskFn(e.target.value)) }
+              })}
+            />
+          </InputGroup>
+          <div className="mx-1 w-full">
+            {fieldState.invalid && (
+              <FieldError errors={[fieldState.error]} />
+            )}
+          </div>
+        </div>
       )}
     />
 

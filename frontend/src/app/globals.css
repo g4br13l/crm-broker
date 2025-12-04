@@ -113,13 +113,16 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground text-base
   }
 
-  
+  a, span {
+    @apply text-base
+  }
+
   h1, .h1 {
     @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl
   }
@@ -145,7 +148,7 @@
   }
 
   p, .p {
-    @apply leading-7 [&:not(:first-child)]:mt-6
+    @apply leading-7 [&:not(:first-child)]:mt-6 text-base
   }
 
   strong, .strong {
@@ -161,7 +164,7 @@
   }
 
   .ul {
-    @apply my-6 ml-6 list-disc [&>li]:mt-2
+    @apply my-6 ml-6 list-disc [&>li]:mt-2 text-base
   }
 
   code, .code {

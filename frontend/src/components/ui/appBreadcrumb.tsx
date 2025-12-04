@@ -1,6 +1,6 @@
 import { Fragment } from 'react/jsx-runtime'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../base/breadcrumb'
-import { PageDataT } from '../layout/appSidebarPages'
+import { PageDataT } from '../layout/appSidebarItems'
 
 
 
@@ -24,7 +24,9 @@ export function AppBreadCrumb({ items }: AppBreadCrumbPropsT) {
               </Fragment>
             ) : (
               <BreadcrumbItem>
-                <BreadcrumbPage>{item.title}</BreadcrumbPage>
+                <BreadcrumbPage>
+                  {item.title[0].toUpperCase() + item.title.slice(1)}
+                </BreadcrumbPage>
               </BreadcrumbItem>
             )}
           </Fragment>

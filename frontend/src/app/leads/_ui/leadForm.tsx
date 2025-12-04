@@ -1,15 +1,15 @@
 'use client'
 
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { Button } from '../../../components/base/button'
 import { Field, FieldGroup } from '../../../components/base/field'
 import { InputField } from '../../../components/ui/fields/inputField'
-import { leadOriginOptions, leadOriginOptionsKeys } from '../../../shared/constants/leadOriginOptions'
-import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { inputMask } from '../../../shared/utils/inputMask'
-import { Button } from '../../../components/base/button'
 import SelectField from '../../../components/ui/fields/selectField'
 import { TextAreaField } from '../../../components/ui/fields/textAreaField'
+import { leadOriginOptions, leadOriginOptionsKeys } from '../../../shared/constants/leadOriginOptions'
+import { inputMask } from '../../../shared/utils/inputMask'
 import { zEmpty } from '../../../shared/utils/zodExtensions'
 
 
@@ -20,7 +20,7 @@ const leadFormSchema = z.object({
   email: z.email().optional().or(zEmpty),
   origin: z.enum(leadOriginOptionsKeys).optional().or(zEmpty),
   interestedIn: z.string().min(2).max(50).optional().or(zEmpty),
-  notes: z.string().max(1_000).optional().or(zEmpty)
+  notes: z.string().min(2).max(1_000).optional().or(zEmpty)
 })
 
 type LeadFormSchemaT = z.infer<typeof leadFormSchema>
@@ -55,7 +55,7 @@ export default function LeadForm() {
   return (
 
     <form id="lead-form" onSubmit={leadForm.handleSubmit(onSubmit, onError)}>
-        
+
       <FieldGroup>
           
         <InputField

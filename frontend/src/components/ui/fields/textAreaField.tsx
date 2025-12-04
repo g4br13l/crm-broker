@@ -1,10 +1,12 @@
 'use client'
 
+import { ComponentProps } from 'react'
 import { Controller, FieldPath, FieldValues } from 'react-hook-form'
+import { cn } from '../../../shared/utils/shadcnUtils'
 import { Field, FieldError, FieldLabel } from '../../base/field'
+import { InputGroup, InputGroupAddon, InputGroupTextarea } from '../../base/input-group'
 import { Textarea } from '../../base/textarea'
 import { FieldControlPropsT } from './fieldTypes'
-import { ComponentProps } from 'react'
 
 
 
@@ -20,6 +22,7 @@ export function TextAreaField<
   label = undefined,
   placeholder,
   autoComplete = 'one-time-code',
+  className,
   ...fieldProps
 }: FieldControlPropsT<TFieldValues, TName, TTransformedValues> & TextAreaPropsT) {
 
@@ -31,30 +34,30 @@ export function TextAreaField<
       control={control}
       name={name}
       render={({ field, fieldState }) => (
-        <Field
-          data-invalid={fieldState.invalid}
-          className="gap-0.5"
-        >
-          {label && (
-            <FieldLabel
-              htmlFor={`${preField}${field.name}`}
-              className="ml-1"
-            >
-              {label}
-            </FieldLabel>
-          )}
-          <Textarea
-            {...fieldProps}
-            {...field}
-            id={`${preField}${field.name}`}
-            aria-invalid={fieldState.invalid}
-            placeholder={placeholder}
-            autoComplete={autoComplete}
-          />
-          {fieldState.invalid && (
-            <FieldError errors={[fieldState.error]} />
-          )}
-        </Field>
+        <div className={cn('m-0 p-0 w-full', className)}>
+          <InputGroup data-invalid={fieldState.invalid}>
+            {label && (
+              <InputGroupAddon align="block-start" className="px-1! pt-0.5! pb-0!">
+                <FieldLabel htmlFor={`${preField}${field.name}`} className="ml-1">
+                  {label}
+                </FieldLabel>
+                  
+              </InputGroupAddon>
+            )}
+            <InputGroupTextarea
+              {...fieldProps}
+              {...field}
+              id={`${preField}${field.name}`}
+              aria-invalid={fieldState.invalid}
+              placeholder={placeholder}
+              autoComplete={autoComplete}
+              className="px-2! pt-0! pb-0.5! text-base!"
+            />
+            {fieldState.invalid && (
+              <FieldError errors={[fieldState.error]} />
+            )}
+          </InputGroup>
+        </div>
       )}
     />
 
