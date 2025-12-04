@@ -1,3 +1,5 @@
+'use client'
+
 import { Controller, FieldPath, FieldValues } from 'react-hook-form'
 import { Field, FieldError, FieldLabel } from '../../base/field'
 import { Input } from '../../base/input'
@@ -9,10 +11,10 @@ import { ComponentProps } from 'react'
 type InputPropsT = Omit<ComponentProps<'input'>, 'autoComplete'>
 
 export function InputField<
-    TFieldValues extends FieldValues = FieldValues,
-    TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-    TTransformedValues = TFieldValues
-  >({
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TTransformedValues = TFieldValues
+>({
   control,
   type = 'text',
   name,
@@ -23,6 +25,7 @@ export function InputField<
   ...fieldProps
 }: FieldControlPropsT<TFieldValues, TName, TTransformedValues> & InputPropsT) {
 
+  console.log('(InputField)')
   const preField = 'input-field-'
 
   return (

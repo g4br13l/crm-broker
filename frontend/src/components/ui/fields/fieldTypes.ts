@@ -11,6 +11,8 @@ export type FieldControlPropsT<
   control: ControllerProps<TFieldValues, TName, TTransformedValues>['control']
   name: TName
   label?: string
+  placeholder?: string
+  description?: string
   autoComplete?: AutoFill,
   maskFn?: InputMaskFnT
 }

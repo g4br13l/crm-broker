@@ -1,3 +1,5 @@
+'use client'
+
 import { Controller, FieldPath, FieldValues } from 'react-hook-form'
 import { Field, FieldError, FieldLabel } from '../../base/field'
 import { Textarea } from '../../base/textarea'
