@@ -95,6 +95,8 @@
   // "editor.acceptSuggestionOnEnter": "off",
   "editor.tabCompletion": "off",
   "cSpell.words": [
+    "extralight",
+    "poppins",
     "shadcn"
   ],
   // TAILWIND CSS

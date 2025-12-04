@@ -17,7 +17,7 @@ export function sidebarItems() {
       icon: Funnel,
     },
     {
-      title: 'leads',
+      title: 'Leads',
       path: '/leads',
       icon: UsersRound,
     },

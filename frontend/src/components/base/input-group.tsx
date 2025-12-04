@@ -30,6 +30,10 @@ function InputGroup({ className, ...props }: React.ComponentProps<'div'>) {
         // Focus state.
         'has-[[data-slot=input-group-control]:focus-visible]:border-ring has-[[data-slot=input-group-control]:focus-visible]:ring-ring/50 has-[[data-slot=input-group-control]:focus-visible]:ring-[3px]',
 
+        'has-[[data-slot="select-trigger"]:focus-visible]:border-ring',
+        'has-[[data-slot="select-trigger"]:focus-visible]:ring-ring/50',
+        'has-[[data-slot="select-trigger"]:focus-visible]:ring-[3px]',
+
         // Error state.
         'has-[[data-slot][aria-invalid=true]]:ring-destructive/20 has-[[data-slot][aria-invalid=true]]:border-destructive dark:has-[[data-slot][aria-invalid=true]]:ring-destructive/40',
 
@@ -66,18 +70,21 @@ function InputGroupAddon({
   align = 'inline-start',
   ...props
 }: React.ComponentProps<'div'> & VariantProps<typeof inputGroupAddonVariants>) {
+
+  function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    const input = e.currentTarget.parentElement?.querySelector('input')
+    if (input) { input.focus(); return }
+    e.currentTarget.parentElement
+      ?.querySelector<HTMLElement>('[data-slot="select-trigger"]')?.click()
+  }
+
   return (
     <div
       role="group"
       data-slot="input-group-addon"
       data-align={align}
       className={cn(inputGroupAddonVariants({ align }), className)}
-      onClick={(e) => {
-        if ((e.target as HTMLElement).closest('button')) {
-          return
-        }
-        e.currentTarget.parentElement?.querySelector('input')?.focus()
-      }}
+      onClick={(e) => handleClick(e)}
       {...props}
     />
   )
@@ -126,7 +133,9 @@ function InputGroupSelect({
   ...props
 }: ComponentProps<typeof Select> & { className?: string }) {
   return (
-    <div className="flex flex-row [&_svg]:self-start [&_svg]:place-self-start *:bg-transparent! *:shadow-none! *:py-0! *:border-0! *:focus-visible:border-none! *:dark:focus-visible:border-none! *:focus-visible:ring-0! w-full *:w-full *:h-[1.459rem]! *:min-h-5!">
+    <div
+      className="flex flex-row [&_svg]:self-start [&_svg]:place-self-start *:bg-transparent! *:shadow-none! *:py-0! *:border-0! *:focus-visible:border-none! *:dark:focus-visible:border-none! :ring-gray-500! *:focus-visible:ring-0! w-full *:w-full *:h-[1.459rem]! *:min-h-5! *:text-base! *:data-state"
+    >
       <Select
         {...props}
       >

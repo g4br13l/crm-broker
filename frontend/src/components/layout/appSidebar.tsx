@@ -10,6 +10,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarTrigger,
   useSidebar
 } from '@/components/base/sidebar'
 
@@ -30,6 +31,8 @@ export function AppSidebar() {
   return (
     
     <Sidebar variant="sidebar" collapsible="icon">
+
+      <SidebarTrigger className="hidden absolute md:flex self-end bg-sidebar mt-2 -mr-6 py-4 border border-sidebar-border/30 border-l-0 rounded-l-none size-6" />
       
       <SidebarHeader>
         <SidebarMenu>
@@ -46,7 +49,9 @@ export function AppSidebar() {
       
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>gestão de atendimentos</SidebarGroupLabel>
+          <SidebarGroupLabel className="font-extralight">
+            gestão de atendimentos
+          </SidebarGroupLabel>
           <SidebarMenu>
             
             {items.map((item) => (
@@ -54,17 +59,17 @@ export function AppSidebar() {
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
                   <a href={item.path}>
-                    {open ? (<item.icon />) : (
+                    {open ? (<item.icon strokeWidth={2.6} />) : (
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <item.icon className="size-5!" />
                         </TooltipTrigger>
                         <TooltipContent side="right">
-                          <span>{item.title}</span>
+                          <span className="text-sm">{item.title}</span>
                         </TooltipContent>
                       </Tooltip>
                     )}
-                    <span>{item.title}</span>
+                    <span className="text-base">{item.title}</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>

@@ -73,6 +73,7 @@
 }
 
 @theme inline {
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -116,11 +117,7 @@
     @apply border-border outline-ring/50
   }
   body {
-    @apply bg-background text-foreground text-base
-  }
-
-  a, span {
-    @apply text-base
+    @apply bg-background text-foreground text-base font-sans tracking-wide
   }
 
   h1, .h1 {
