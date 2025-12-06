@@ -194,11 +194,18 @@
   justify-content: center;
 }
 
-@utility f-row-center {
+@utility f-row-left-center {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+@utility f-row-right-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 @utility f-col-center {

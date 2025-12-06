@@ -2,49 +2,39 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
 import { Button } from '../../../components/base/button'
 import { Field, FieldGroup } from '../../../components/base/field'
 import { InputField } from '../../../components/ui/fields/inputField'
 import SelectField from '../../../components/ui/fields/selectField'
 import { TextAreaField } from '../../../components/ui/fields/textAreaField'
-import { leadOriginOptions, leadOriginOptionsKeys } from '../../../shared/constants/leadOriginOptions'
 import { inputMask } from '../../../shared/utils/inputMask'
-import { zEmpty } from '../../../shared/utils/zodExtensions'
-
-
-
-const leadFormSchema = z.object({
-  name: z.string().min(3).max(100),
-  phone: z.string().min(12).max(14),
-  email: z.email().optional().or(zEmpty),
-  origin: z.enum(leadOriginOptionsKeys).optional().or(zEmpty),
-  interestedIn: z.string().min(2).max(50).optional().or(zEmpty),
-  notes: z.string().min(2).max(1_000).optional().or(zEmpty)
-})
-
-type LeadFormSchemaT = z.infer<typeof leadFormSchema>
+import { LeadFormInputT, LeadT, leadData } from '../_data/leadData'
 
 
 
 export default function LeadForm() {
 
+  const { leadFormSchema, leadOriginOptions } = leadData()
+
   console.log('(LeadForm)')
-  const leadForm = useForm<LeadFormSchemaT>({
+  const leadForm = useForm<LeadFormInputT>({
     resolver: zodResolver(leadFormSchema),
     defaultValues: {
+      id: 0,
       name: '',
       phone: '',
       email: '',
       origin: '',
       interestedIn: '',
-      notes: ''
-    }
+      notes: '',
+    },
   })
 
-  function onSubmit(data: LeadFormSchemaT) {
+  function onSubmit(data: LeadFormInputT) {
     // Handle form submission
-    console.log('onSubmit:', data)
+    // Data will be transformed by zod (empty strings → undefined)
+    const transformedData = leadFormSchema.parse(data) as LeadT
+    console.log('onSubmit:', transformedData)
   }
 
   function onError(errors: unknown) {
