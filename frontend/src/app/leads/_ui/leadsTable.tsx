@@ -77,19 +77,19 @@ export default function LeadsTable() {
         buttonNew={() => (
           <Link href="/leads/new">
             <Button>
-              <UserRoundPlus />
+              <UserRoundPlus size="20" />
               <span>Novo lead</span>
             </Button>
           </Link>
         )}
         buttonPagLeft={(props) => (
-          <Button variant="outline" size="sm" {...props}>
-            <ChevronLeft />
+          <Button variant="secondary" size="default" {...props}>
+            <ChevronLeft size="20" />
           </Button>
         )}
         buttonPagRight={(props) => (
-          <Button variant="outline" size="sm" {...props}>
-            <ChevronRight />
+          <Button variant="secondary" size="default" {...props}>
+            <ChevronRight size="20" />
           </Button>
         )}
       />

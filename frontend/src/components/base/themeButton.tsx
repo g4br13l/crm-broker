@@ -30,7 +30,7 @@ export function ThemeButton() {
 
   const button = (
     <Button
-      variant="outline"
+      variant="secondary"
       size="icon"
       className="size-9"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}

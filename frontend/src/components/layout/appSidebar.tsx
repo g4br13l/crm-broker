@@ -47,8 +47,6 @@ export function AppSidebar() {
                 'hidden md:flex',
                 !open && 'md:-mr-9 bg-sidebar! rounded-l-none border-l-0 border-sidebar-border/50!',
               )}
-              variant="outline"
-              /* size="icon" */
             />
 
           </SidebarMenuItem>

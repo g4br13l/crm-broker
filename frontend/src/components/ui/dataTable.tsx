@@ -1,7 +1,7 @@
 'use client'
 
 import { ColumnDef, ColumnFiltersState, HeaderContext, PaginationState, Row, SortingState, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, useReactTable } from '@tanstack/react-table'
-import { ArrowUpDown, Search } from 'lucide-react'
+import { ArrowDownUp, ArrowUpDown, Search } from 'lucide-react'
 import { ComponentProps, ComponentType, useMemo, useState } from 'react'
 import { Button } from '../base/button'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../base/table'
@@ -27,7 +27,7 @@ export function TbColTitle<TData, TValue>({
         size="icon-sm"
         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
       >
-        <ArrowUpDown />
+        <ArrowDownUp size="16" className="text-muted-foreground" />
       </Button>
     </div>
 

@@ -9,7 +9,7 @@
   "license": "UNLICENSED",
   "packageManager": "npm@11.6.4",
   "engines": {
-    "node": ">=v24.4.1"
+    "node": "v24.4.1"
   },
   "scripts": {
     "dev": "next dev",
