@@ -20,7 +20,7 @@ export function leadData() {
   type OriginOptKeysT = OriginOptionT['key']
 
   const originOptionsKeys =
-    leadOriginOptions.map((o) => `${o.key}}` as `${OriginOptKeysT}`)
+    leadOriginOptions.map((o) => `${o.key}` as `${OriginOptKeysT}`)
   
 
   const getOrigin = (key: OriginOptKeysT | `${OriginOptKeysT}`) => {

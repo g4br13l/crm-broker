@@ -5,7 +5,7 @@ import { ArrowUpDown, Search } from 'lucide-react'
 import { ComponentProps, ComponentType, useMemo, useState } from 'react'
 import { Button } from '../base/button'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../base/table'
-import { InputGroup, InputGroupAddon, InputGroupInput } from '../base/input-group'
+import { InputGroup, InputGroupAddon, InputGroupInput } from '../base/inputGroup'
 
 
 
@@ -108,7 +108,7 @@ export function DataTable<T>({
 
   return (
 
-    <div className="w-full">
+    <div id="dataTableComp" className="f-col w-full">
 
       <div className="f-row-center flex-wrap-reverse justify-between gap-4 my-4">
         
@@ -136,7 +136,7 @@ export function DataTable<T>({
 
       </div>
 
-      <div className="border rounded-md overflow-hidden">
+      <div className="f-col border rounded-md overflow-hidden">
         <Table>
           
           <TableHeader>

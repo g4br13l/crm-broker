@@ -11,7 +11,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarTrigger,
-  useSidebar
+  useSidebar,
 } from '@/components/base/sidebar'
 
 
@@ -20,6 +20,7 @@ import { Logo } from '../base/logo'
 import { ThemeButton } from '../base/themeButton'
 import { UserNavButton } from '../ui/userNavButton'
 import { sidebarItems } from './appSidebarItems'
+import { cn } from '../../shared/utils/shadcnUtils'
 
 
 
@@ -31,17 +32,24 @@ export function AppSidebar() {
   return (
     
     <Sidebar variant="sidebar" collapsible="icon">
-
-      <SidebarTrigger className="hidden absolute md:flex self-end bg-sidebar mt-2 -mr-6 py-4 border border-sidebar-border/30 border-l-0 rounded-l-none size-6" />
       
       <SidebarHeader>
         <SidebarMenu>
-          <SidebarMenuItem>
+          <SidebarMenuItem className="f-row-center justify-between">
             
             <div className="flex flex-row items-center gap-2">
               <Logo />
               {open && (<h3>CRM Broker</h3>)}
             </div>
+
+            <SidebarTrigger
+              className={cn(
+                'hidden md:flex',
+                !open && 'md:-mr-9 bg-sidebar! rounded-l-none border-l-0 border-sidebar-border/50!',
+              )}
+              variant="outline"
+              /* size="icon" */
+            />
 
           </SidebarMenuItem>
         </SidebarMenu>
@@ -88,7 +96,7 @@ export function AppSidebar() {
           user={{
             name: 'Gabriel Lima',
             email: 'gabriel@email.com',
-            avatar: 'https://github.com/shadcn.png'
+            avatar: 'https://github.com/shadcn.png',
           }}
         />
       </SidebarFooter>

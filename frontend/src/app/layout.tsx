@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Outfit } from 'next/font/google'
-import { SidebarInset, SidebarProvider } from '../components/base/sidebar'
+import { SidebarInset } from '../components/base/sidebar'
 import { AppSidebar } from '../components/layout/appSidebar'
+import { AppSidebarProvider } from '../shared/react/providers/appSidebarProvider'
 import { AppThemeProvider } from '../shared/react/providers/appThemeProvider'
 import './globals.css'
 
@@ -26,7 +27,7 @@ const poppins = Poppins({
 const outfit = Outfit({
   variable: '--font-outfit',
   subsets: ['latin', 'latin-ext'],
-  weight: ['100', '200', '300', '400', '500', '600', '700']
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -45,12 +46,12 @@ export default function RootLayout({
         className={`${outfit.variable} antialiased`}
       >
         <AppThemeProvider>
-          <SidebarProvider>
+          <AppSidebarProvider>
             <AppSidebar />
-            <SidebarInset>
+            <SidebarInset className="min-w-0 overflow-x-hidden">
               {children}
             </SidebarInset>
-          </SidebarProvider>
+          </AppSidebarProvider>
         </AppThemeProvider>
       </body>
     </html>

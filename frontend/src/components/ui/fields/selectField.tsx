@@ -5,7 +5,7 @@ import { Controller, FieldPath, FieldValues } from 'react-hook-form'
 import { KeyValueT } from '../../../shared/types/genericTypes'
 import { cn } from '../../../shared/utils/shadcnUtils'
 import { FieldDescription, FieldError, FieldLabel } from '../../base/field'
-import { InputGroup, InputGroupAddon, InputGroupSelect } from '../../base/input-group'
+import { InputGroup, InputGroupAddon, InputGroupSelect } from '../../base/inputGroup'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../base/select'
 import { FieldControlPropsT } from './fieldTypes'
 
@@ -40,23 +40,27 @@ export default function SelectField<
       name={name}
       render={({ field, fieldState }) => (
         <div className={cn('m-0 p-0 w-full', className)}>
+          
           <InputGroup data-invalid={fieldState.invalid}>
             {label && (
+              
               <InputGroupAddon align="block-start" className="px-1! pt-0.5! pb-0!">
                 <FieldLabel htmlFor={`${preField}${field.name}`} className="ml-1">
                   {label}
                 </FieldLabel>
               </InputGroupAddon>
+
             )}
+            
             <InputGroupSelect
               {...fieldProps}
               {...field}
               value={field.value}
               onValueChange={field.onChange}
-              aria-invalid={fieldState.invalid}
             >
               <SelectTrigger
                 id={`${preField}${field.name}`}
+                aria-invalid={fieldState.invalid}
               >
                 <SelectValue placeholder={placeholder} />
               </SelectTrigger>
@@ -68,15 +72,17 @@ export default function SelectField<
                 ))}
               </SelectContent>
             </InputGroupSelect>
-            {description && (
-              <FieldDescription>
-                {description}
-              </FieldDescription>
-            )}
-            {fieldState.invalid && (
-              <FieldError errors={[fieldState.error]} />
-            )}
+
           </InputGroup>
+          
+          {description && (
+            <FieldDescription> {description} </FieldDescription>
+          )}
+
+          {fieldState.invalid && (
+            <FieldError errors={[fieldState.error]} />
+          )}
+
         </div>
       )}
     />

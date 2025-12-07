@@ -46,3 +46,4 @@ frontend/.next/
 **/*.swp
 
 # Backend (add more as needed based on your stack)
+docs/features/**

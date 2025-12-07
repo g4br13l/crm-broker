@@ -38,7 +38,7 @@ function SheetOverlay({
       data-slot="sheet-overlay"
       className={cn(
         'z-50 fixed inset-0 bg-black/50 data-[state=closed]:animate-out data-[state=open]:animate-in data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
-        className
+        className,
       )}
       {...props}
     />
@@ -68,7 +68,7 @@ function SheetContent({
             && 'data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b',
           side === 'bottom'
             && 'data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t',
-          className
+          className,
         )}
         {...props}
       >

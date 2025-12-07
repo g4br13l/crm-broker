@@ -7,7 +7,7 @@ export default function DashboardPage() {
 
   const breadCrumb: PageDataT[] = [
     sidebarItems().getByPath('/dashboard'),
-    { title: 'testa', path: '/test' }
+    { title: 'testa', path: '/test' },
   ]  
 
   return (

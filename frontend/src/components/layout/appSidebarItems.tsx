@@ -49,7 +49,7 @@ export function sidebarItems() {
   ] as const
 
   
-  function getByPath(path: SidebarPagesPath) {
+  function getByPath(path: SidebarPagesPathT) {
     return all.find((sidebarPage) => sidebarPage.path === path) as SidebarPageT
   }
 
@@ -59,7 +59,7 @@ export function sidebarItems() {
 
 export type SidebarPagesT = Pick<ReturnType<typeof sidebarItems>, 'all'>['all']
 export type SidebarPageT = SidebarPagesT[number]
-export type SidebarPagesPath = SidebarPageT['path']
+export type SidebarPagesPathT = SidebarPageT['path']
 
 export type PageDataT = {
   title: string

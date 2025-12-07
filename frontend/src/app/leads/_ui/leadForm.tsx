@@ -31,8 +31,6 @@ export default function LeadForm() {
   })
 
   function onSubmit(data: LeadFormInputT) {
-    // Handle form submission
-    // Data will be transformed by zod (empty strings → undefined)
     const transformedData = leadFormSchema.parse(data) as LeadT
     console.log('onSubmit:', transformedData)
   }
@@ -58,6 +56,7 @@ export default function LeadForm() {
           control={leadForm.control}
           name="phone"
           label="Cel"
+          type="tel"
           maskFn={inputMask().phone}
         />
 
@@ -65,6 +64,7 @@ export default function LeadForm() {
           control={leadForm.control}
           name="email"
           label="Email"
+          type="email"
         />
 
         <InputField

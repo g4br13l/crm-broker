@@ -16,8 +16,6 @@ export default function Page() {
 
     <AppPage breadCrumbItems={breadCrumb}>
 
-      {/* <LeadForm /> */}
-
       <LeadsTable />
       
     </AppPage>

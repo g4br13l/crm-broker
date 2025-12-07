@@ -22,7 +22,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/base/dropdown-menu'
+} from '@/components/base/dropdownMenu'
 import {
   SidebarMenu,
   SidebarMenuButton,

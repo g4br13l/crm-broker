@@ -4,7 +4,7 @@ import { ComponentProps } from 'react'
 import { Controller, FieldPath, FieldValues } from 'react-hook-form'
 import { cn } from '../../../shared/utils/shadcnUtils'
 import { FieldError, FieldLabel } from '../../base/field'
-import { InputGroup, InputGroupAddon, InputGroupInput } from '../../base/input-group'
+import { InputGroup, InputGroupAddon, InputGroupInput } from '../../base/inputGroup'
 import { FieldControlPropsT } from './fieldTypes'
 
 
@@ -36,8 +36,11 @@ export function InputField<
       control={control}
       name={name}
       render={({ field, fieldState }) => (
+
         <div className={cn('m-0 p-0 w-full', className)}>
+          
           <InputGroup data-invalid={fieldState.invalid}>
+            
             {label && (
               <InputGroupAddon align="block-start" className="px-1! pt-0.5! pb-0!">
                 <FieldLabel htmlFor={`${preField}${field.name}`} className="ml-1 text-sm">
@@ -45,6 +48,7 @@ export function InputField<
                 </FieldLabel>
               </InputGroupAddon>
             )}
+
             <InputGroupInput
               {...fieldProps}
               {...field}
@@ -55,16 +59,20 @@ export function InputField<
               autoComplete={autoComplete}
               className="px-2! pt-0! pb-0.5! text-base!"
               {...(maskFn && {
-                onChange: (e) => { field.onChange(maskFn(e.target.value)) }
+                onChange: (e) => { field.onChange(maskFn(e.target.value)) },
               })}
             />
+            
           </InputGroup>
+
           <div className="mx-1 w-full">
             {fieldState.invalid && (
               <FieldError errors={[fieldState.error]} />
             )}
           </div>
+
         </div>
+
       )}
     />
 
