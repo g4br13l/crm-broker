@@ -14,7 +14,7 @@ export function AppPage({ children, breadCrumbItems }: AppPagePropsT) {
 
   return (
     
-    <div className="f-col @container/main flex-1 gap-4 mx-8 mb-8">
+    <div className="f-col @container/main flex-1 gap-4 mx-4 md:mx-8 mb-8">
 
       <AppHeader>
         {breadCrumbItems && breadCrumbItems?.length > 0 && (

@@ -38,6 +38,15 @@ const eslintConfig = defineConfig([
           suffix: ['T'],
         },
       ],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+        },
+      ],
       'arrow-parens': ['warn', 'always'],
       // 'padded-blocks': ['warn', 'always'],
       'no-console': ['warn'],

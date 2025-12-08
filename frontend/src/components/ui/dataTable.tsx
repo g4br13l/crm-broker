@@ -1,11 +1,11 @@
 'use client'
 
 import { ColumnDef, ColumnFiltersState, HeaderContext, PaginationState, Row, SortingState, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, useReactTable } from '@tanstack/react-table'
-import { ArrowDownUp, ArrowUpDown, Search } from 'lucide-react'
+import { ArrowDownUp, Search } from 'lucide-react'
 import { ComponentProps, ComponentType, useMemo, useState } from 'react'
 import { Button } from '../base/button'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../base/table'
 import { InputGroup, InputGroupAddon, InputGroupInput } from '../base/inputGroup'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../base/table'
 
 
 

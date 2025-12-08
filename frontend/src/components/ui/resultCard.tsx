@@ -48,20 +48,22 @@ export function ResultCard({
     <Card className="@container/card">
       
       <CardHeader>
-        {subtitle && (
-          <CardDescription> {subtitle} </CardDescription>
-        )}
-        {title && (
-          <CardTitle className="font-semibold tabular-nums text-2xl @[250px]/card:text-3xl">
-            {title}
-          </CardTitle>
-        )}
         {growingAmount && (
           <CardAction>
             <Badge variant="outline">
               <GrowInfo isGrowing={isGrowing} amount={growingAmount} />
             </Badge>
           </CardAction>
+        )}
+        {subtitle && (
+          <CardDescription>
+            {subtitle}
+          </CardDescription>
+        )}
+        {title && (
+          <CardTitle className="font-semibold tabular-nums text-2xl @[250px]/card:text-3xl">
+            {title}
+          </CardTitle>
         )}
       </CardHeader>
       

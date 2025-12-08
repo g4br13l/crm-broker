@@ -6,7 +6,7 @@ export function LeadsResultCards() {
 
   return (
 
-    <div className="gap-4 grid grid-cols-1 @5xl/main:grid-cols-4 @xl/main:grid-cols-2 dark:*:data-[slot=card]:bg-card *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs">
+    <div className="gap-4 grid grid-cols-2 @5xl/main:grid-cols-4 @xl/main:grid-cols-2 dark:*:data-[slot=card]:bg-card *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs">
 
       <ResultCard
         subtitle="Novos leads na semana"
