@@ -17,7 +17,9 @@ export default function Page() {
 
     <AppPage breadCrumbItems={breadCrumb}>
 
-      <LeadsResultCards />
+      <div className="mb-12">
+        <LeadsResultCards />
+      </div>
 
       <LeadsTable />
       
